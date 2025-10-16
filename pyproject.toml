@@ -1,0 +1,26 @@
+# pyproject.toml
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ia-core-models"
+version = "1.0.0" # O la versión que corresponda
+authors = [
+  { name="Erik Sabina (Develop Aguascalientes)", email="compucell.ags@gmail.com" },
+]
+description = "A foundational library for building and deploying ethical AI models."
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Topic :: Security",
+    "Topic :: Software Development :: Libraries :: Application Frameworks",
+]
+
+[project.urls]
+Homepage = "https://github.com/CompuCellags/ia-core-models"
+Issues = "https://github.com/CompuCellags/ia-core-models/issues"
