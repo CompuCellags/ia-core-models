@@ -1,10 +1,11 @@
 ```
 ═════════════════════════════════════════════════════════════════════════════════════════════════════════
- ▒█                                                                            ██           ██▒          
-     ▄███▄▒█      ▄░███▄  ▄░███▄ ░█▌ ░██ ▄░████▄      ▄░██▄⌠██░▄  ▄░███▄       ██  ▄░████▄  ██▒  ▄░███▄  
- ▒█ ▓█⌠   ▒█     ░█▌⌠    ░█▌⌠ ▐█ ░█▀▀    ░█▌⌠ ░█▌    ░█▌⌠░█▌⌠░█▌  ░█▌⌠ ▐█  ▄░████  ░█▌⌠ ░█▌ ██▒  ░▄▄▄▄▄  
- ▒█ ▓█⌠   ▒█ ██▒ ░█▌⌠    ░█▌⌠ ▐█ ░█⌠     ░█▌▀▀▀▀ ██▒ ░█▌⌠░█▌⌠░█▌  ░█▌⌠ ▐█ ░█▌⌠ ▐█  ░█▌▀▀▀▀  ██▒      ░█▌ 
- ▒█  ▀███▀▒█      ▀░███▀  ▀░███▀ ░█⌠      ▀░███▀     ░█▌⌠    ░█▌  ▀░███▀   ▀░███▀   ▀░███▀  ██▒  ▀░███▀  
+══════════════════════════════════════════════════════════════════════════════ ██▒ ════════ █▒ ══════════
+ ▀▀░                                                                           ██           █▒          
+ ▒█  ▄███▄▒█      ▄░███▄  ▄░███▄ ░█▌ ░██ ▄░████▄      ▄░██▄⌠██░▄  ▄░███▄   ▄░████  ▄░████▄  █▒  ▄░███▄  
+ ▒█ ▓█⌠   ▒█     ░█▌⌠    ░█▌⌠ ▐█ ░█▀▀    ░█▌⌠ ░█▌    ░█▌⌠░█▌⌠░█▌  ░█▌⌠ ▐█ ░█▌⌠ ▐█  ░█▌⌠ ░█▌ █▒  ░▄▄▄▄▄  
+ ▒█ ▓█⌠   ▒█ ██▒ ░█▌⌠    ░█▌⌠ ▐█ ░█⌠     ░█▌▀▀▀▀ ██▒ ░█▌⌠░█▌⌠░█▌  ░█▌⌠ ▐█ ░█▌⌠ ▐█  ░█▌▀▀▀▀  █▒      ░█▌ 
+ ▒█  ▀███▀▒█      ▀░███▀  ▀░███▀ ░█⌠      ▀░███▀     ░█▌⌠    ░█▌  ▀░███▀   ▀░███▀   ▀░███▀  █▒  ▀░███▀  
 ═════════════════════════════════════════════════════════════════════════════════════════════════════════
                                                    /Δ\                                                   
                                                   \\|//                                                  
@@ -132,7 +133,7 @@ python training/train_cnn.py --config configs/cnn_default.yaml
 
 If you use this repository in publications, presentations, or derivative projects, please cite as:
 
-Develop Aguascalientes (2025). IA Core Models: Modular repository for training and evaluation of AI models. Apache License 2.0. GitHub: https://github.com/CompuCellags/core-ia-
+Develop Aguascalientes (2025). IA Core Models: Modular repository for training and evaluation of AI models. Apache License 2.0. GitHub: https://github.com/CompuCellags/ia-core-models
 
 También puedes consultar el archivo CITATION.cff para formatos compatibles con BibTeX, EndNote y Zotero.
 
@@ -141,7 +142,7 @@ También puedes consultar el archivo CITATION.cff para formatos compatibles con 
 ## License
 
 This project is licensed under the terms of the Apache License 2.0. Use, modification, and distribution are permitted with attribution, provided that ethical and technical traceability of the original work is maintained.
-© 2025 Develop Aguascalientes & Copilot Microsoft. All modules, scripts, and documentation are subject to open access principles with mandatory attribution.
+© 2025 Develop Aguascalientes. All modules, scripts, and documentation are subject to open access principles with mandatory attribution.
 
 ---
 
