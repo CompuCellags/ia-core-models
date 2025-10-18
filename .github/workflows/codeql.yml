@@ -12,6 +12,7 @@ jobs:
   analyze:
     name: "CodeQL Scan"
     runs-on: ubuntu-latest
+
     permissions:
       actions: read
       contents: read
@@ -23,16 +24,17 @@ jobs:
         language: ["javascript", "python"]  # ajusta según tu stack
 
     steps:
-      - name: Checkout repository
+      - name: "🧾 Checkout repository"
         uses: actions/checkout@v4
 
-      - name: Initialize CodeQL
+      - name: "🧬 Initialize CodeQL"
         uses: github/codeql-action/init@v2
         with:
           languages: ${{ matrix.language }}
 
-      - name: Autobuild
+      - name: "⚙️ Autobuild project"
         uses: github/codeql-action/autobuild@v2
 
-      - name: Run CodeQL analysis
+      - name: "🔍 Run CodeQL analysis"
         uses: github/codeql-action/analyze@v2
+
