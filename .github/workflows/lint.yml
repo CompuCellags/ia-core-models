@@ -1,4 +1,5 @@
-name: Lint
+run: pylint src/
+name: 🧪 Lint Python Code
 
 on:
   push:
@@ -10,19 +11,22 @@ on:
 
 jobs:
   lint:
+    name: 🔍 Pylint Check
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: 🧾 Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up Python
+      - name: 🐍 Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: "3.10"
 
-      - name: Install dependencies
-        run: pip install pylint
+      - name: 📦 Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pylint
 
-      - name: Run Pylint
+      - name: 🧪 Run Pylint
         run: pylint src/

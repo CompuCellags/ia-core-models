@@ -1,0 +1,11 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ia-core-models"
+version = "1.0.0"
+description = "Modelos éticos y reproducibles para auditoría técnica"
+authors = [{ name = "Develop Aguascalientes", email = "compucell.ags@gmail.com" }]
+license = { text = "CC-BY-4.0" }
+dependencies = []
