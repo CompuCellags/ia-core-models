@@ -15,11 +15,11 @@ jobs:
         uses: actions/checkout@v4
 
       - name: 🧬 Set up Miniconda
-        uses: conda-incubator/setup-miniconda@v3
-        with:
-          activate-environment: audit-env
-          environment-file: environment.yml
-          auto-activate: false  # ← evita activación automática
+  uses: conda-incubator/setup-miniconda@v3
+  with:
+    activate-environment: audit-env
+    environment-file: environment.yml
+    auto-activate-base: false  # ← parámetro válido
 
       - name: 🧠 Initialize Conda shell
         shell: bash -l {0}
