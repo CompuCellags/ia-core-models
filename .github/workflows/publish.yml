@@ -29,7 +29,8 @@ jobs:
         run: python -m build
 
       - name: "🚀 Publish to PyPI (recommended)"
-        uses: pypa/gh-action-pypi-publish@v1.5.0
+        uses: pypa/gh-action-pypi-publish@c9e417052b7e43bc85ec35795ea4536d582c1c04
+
         with:
           user: __token__
           password: ${{ secrets.PYPI_API_TOKEN }}
