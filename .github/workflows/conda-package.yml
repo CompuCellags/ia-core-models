@@ -1,4 +1,4 @@
-name: Conda Package Build
+name: 🧪 Conda Package Build and Test
 
 on:
   push:
@@ -7,10 +7,11 @@ on:
 
 jobs:
   build:
+    name: 🧬 Build with Conda
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: 🧾 Checkout repository
         uses: actions/checkout@v4
 
       - name: 🧬 Set up Miniconda
@@ -20,20 +21,21 @@ jobs:
     environment-file: environment.yml
     auto-activate-base: false  # ← parámetro válido
 
-      - name: Initialize Conda shell
+      - name: 🧠 Initialize Conda shell
         shell: bash -l {0}
         run: |
           conda init bash
           source ~/.bashrc
 
-      - name: Install dependencies
+      - name: 📦 Install test dependencies
         shell: bash -l {0}
         run: |
           conda activate audit-env
           conda install pytest
 
-      - name: Run tests
+      - name: 🧪 Run tests with Pytest
         shell: bash -l {0}
         run: |
           conda activate audit-env
           pytest tests/
+
