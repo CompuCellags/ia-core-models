@@ -1,39 +1,41 @@
-# This GitHub Action workflow is triggered when a new tag starting with 'v'
-# is pushed to the repository (e.g., v1.0.0, v1.2.1).
-# It builds the Python package and publishes it to the Python Package Index (PyPI).
-
-name: 📦 Publish Python Package to PyPI
+name: 🚀 Publish to PyPI
 
 on:
   push:
-    tags:
-      - 'v*' # Publish only on version tags like v1.0.1, v2.0.0, etc.
+    branches:
+      - main
+  workflow_dispatch:
 
 jobs:
-  publish:
-    name: 🚀 Publish release to PyPI
+  build-and-publish:
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        python-version: [3.8, 3.9, 3.10]
+
     steps:
-      - name: 📥 Checkout repository
-        uses: actions/checkout@v4
+      - name: 🧾 Checkout code
+        uses: actions/checkout@v3
 
-      - name: 🐍 Set up Python
-        uses: actions/setup-python@v5
+      - name: 🐍 Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
         with:
-          python-version: '3.10'
+          python-version: ${{ matrix.python-version }}
 
-      - name: 📦 Install dependencies and build package
-        # Installs the 'build' package and then uses it to create the
-        # source distribution (sdist) and wheel files in the 'dist/' directory.
+      - name: 📦 Install dependencies
         run: |
-          python -m pip install --upgrade build
-          python -m build
+          python -m pip install --upgrade pip
+          pip install build twine
+
+      - name: 🛠️ Build package
+        run: python -m build
+
+      - name: ✅ Validate package with Twine
+        run: twine check dist/*
 
       - name: 🚀 Publish package to PyPI
-        # This action uploads the contents of the 'dist/' directory to PyPI.
-        # It authenticates using an API token stored in GitHub secrets.
-        uses: pypa/gh-action-pypi-publish@release/v1
+        uses: pypa/gh-action-pypi-publish@a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0
         with:
           user: __token__
           password: ${{ secrets.PYPI_API_TOKEN }}
