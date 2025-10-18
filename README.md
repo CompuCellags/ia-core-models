@@ -43,8 +43,10 @@
 
 [![OpenSSF Best Practices](https://bestpractices.coreinfrastructure.org/projects/11129/badge)](https://bestpractices.coreinfrastructure.org/projects/11129)
 
+[![CodeQL Analysis](https://github.com/CompuCellags/ia-core-models/actions/workflows/codeql.yml/badge.svg)](https://github.com/CompuCellags/ia-core-models/actions/workflows/codeql.yml)
 
 [![Apoya el proyecto](https://img.shields.io/badge/Donar-Apoya%20ia--core--models-blue?style=for-the-badge)](https://www.buymeacoffee.com/compucellags)
+
 
 ## Support this project
 
