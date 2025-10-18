@@ -1,10 +1,13 @@
-name: 🚀 Publish Python Package to PyPI
+name: "📦 Publish Python Package / Publicar Paquete Python"
 
 on:
   push:
-    branches:
-      - main
-  workflow_dispatch:
+    tags:
+      - 'v*'  # Publica solo en versiones etiquetadas v1.0.1, v2.0.0, etc.
+
+permissions:
+  contents: read
+  packages: write
 
 jobs:
   build-and-publish:
@@ -16,27 +19,23 @@ jobs:
         python-version: [3.8, 3.9, 3.10]
 
     steps:
-      - name: 🧾 Checkout repository
-        uses: actions/checkout@v3
+      - name: "📥 Checkout repository"
+        uses: actions/checkout@v4
 
-      - name: 🐍 Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v4
+      - name: "🐍 Set up Python"
+        uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: 📥 Install build tools
-        run: |
-          python -m pip install --upgrade pip
-          pip install build twine
+      - name: "📦 Install build tool"
+        run: python -m pip install --upgrade build
 
-      - name: 🛠️ Build distribution
+      - name: "🛠️ Build package"
         run: python -m build
 
-      - name: ✅ Validate package with Twine
-        run: twine check dist/*
+      - name: "🚀 Publish to PyPI (recommended)"
+        uses: pypa/gh-action-pypi-publish@c9e417052b7e43bc85ec35795ea4536d582c1c04
 
-      - name: 🚀 Publish to PyPI
-        uses: pypa/gh-action-pypi-publish@6a593485eedf4c5063c8a9c15b04b14e8b7d2434
         with:
           user: __token__
           password: ${{ secrets.PYPI_API_TOKEN }}
