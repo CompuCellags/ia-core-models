@@ -1,30 +1,41 @@
-name: 📦 Publish Python Package / Publicar Paquete Python
+name: "📦 Publish Python Package / Publicar Paquete Python"
 
 on:
   push:
     tags:
-      - 'v*'  # Publica solo en versiones etiquetadas como v1.0.1, v2.0.0, etc.
+      - 'v*'  # Publica solo en versiones etiquetadas v1.0.1, v2.0.0, etc.
+
+permissions:
+  contents: read
+  packages: write
 
 jobs:
-  publish:
+  build-and-publish:
+    name: 📦 Build and Publish
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        python-version: [3.8, 3.9, 3.10]
+
     steps:
-      - name: 📥 Checkout repository
+      - name: "📥 Checkout repository"
         uses: actions/checkout@v4
 
-      - name: 🐍 Set up Python
+      - name: "🐍 Set up Python"
         uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          python-version: ${{ matrix.python-version }}
 
-      - name: 📦 Build package
-        run: |
-          python -m pip install --upgrade build
-          python -m build
+      - name: "📦 Install build tool"
+        run: python -m pip install --upgrade build
 
-      - name: 🚀 Publish to PyPI
-        uses: pypa/gh-action-pypi-publish@v1.13.0
+      - name: "🛠️ Build package"
+        run: python -m build
+
+      - name: "🚀 Publish to PyPI (recommended)"
+        uses: pypa/gh-action-pypi-publish@c9e417052b7e43bc85ec35795ea4536d582c1c04
+
         with:
           user: __token__
           password: ${{ secrets.PYPI_API_TOKEN }}
