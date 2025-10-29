@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - name: 🧾 Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: 🧬 Set up Miniconda
         uses: conda-incubator/setup-miniconda@v3
