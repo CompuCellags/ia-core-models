@@ -36,6 +36,7 @@ transform_list = []
 for t in config["dataset"]["transform"]:
     if isinstance(t, str) and t == "ToTensor":
         transform_list.append(transforms.ToTensor())
+        transform_list.append(transforms.Lambda(lambda x: x.repeat(3, 1, 1) if x.shape[0] == 1 else x))
     elif isinstance(t, dict) and "Normalize" in t:
         mean_std = t["Normalize"]
         transform_list.append(transforms.Normalize(mean=mean_std, std=mean_std))
@@ -54,7 +55,11 @@ dataset = datasets.FakeData(
 )
 
 loader = DataLoader(dataset, batch_size=config["training"]["batch_size"], shuffle=True)
-
+# === Validación de forma del batch ===
+for X_batch, y_batch in loader:
+    print("✅ Shape del batch:", X_batch.shape)  # Esperado: [batch_size, 3, 32, 32]
+    break
+    
 # === Inicializar modelo, optimizador y función de pérdida ===
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model = SimpleCNN(config["model"]["input_channels"], config["model"]["num_classes"]).to(device)
