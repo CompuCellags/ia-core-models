@@ -122,9 +122,9 @@ python training/train_cnn.py --config configs/cnn_default.yaml
 
 ```
 ╔══════════════════════════════╦═════════════════════════════════════════╦═════════════════════════════════════╗
-║        Developed by          ║	         📍 Location                    ║           📧 Contact Us             ║  
+║        Developed by          ║	         📍 Location                 ║           📧 Contact Us             ║  
 ╠══════════════════════════════╬═════════════════════════════════════════╬═════════════════════════════════════╣
-║    Develop Aguascalientes    ║         Aguascalientes, México      	   ║  developaguascalientes@outlook.com  ║ 
+║    Develop Aguascalientes    ║         Aguascalientes, México          ║  developaguascalientes@outlook.com  ║ 
 ╠══════════════════════════════╬═════════════════════════════════════════╬═════════════════════════════════════╣
 ║                              ║                                         ║     compucell.ags@gmail.com         ║ 
 ╚══════════════════════════════╩═════════════════════════════════════════╩═════════════════════════════════════╝                                                                                            
@@ -136,8 +136,6 @@ python training/train_cnn.py --config configs/cnn_default.yaml
 If you use this repository in publications, presentations, or derivative projects, please cite as:
 
 Develop Aguascalientes (2025). IA Core Models: Modular repository for training and evaluation of AI models. Apache License 2.0. GitHub: https://github.com/CompuCellags/ia-core-models
-
-También puedes consultar el archivo CITATION.cff para formatos compatibles con BibTeX, EndNote y Zotero.
 
 ---
 
@@ -154,18 +152,29 @@ Explore educational cases and technical flows in the docs/ folder.
 
 ---
 
-### CPE Status
+## 🧾 CPE Status
 
-The CPE identifier for ia-core-models has been formally requested and is currently under review by the CPE Program (managed by NIST).
-Currently, the project is in an active development phase, and a public identifier has not yet been assigned. The current status is as follows:
-Pending Validation: The provenance evidence (v1.0.0 Release) has been submitted and is awaiting confirmation from the CPE moderation team.
-In Active Development: The repository is in a continuous improvement phase, fulfilling the ethical traceability requirements between versions before a wider release.
-Once the request is validated and the CPE is assigned, this section will be updated.
+The CPE identifier for `ia_core_models` has been officially registered in the NIST CPE database under the vendor `compucellags`. This marks the transition from provisional submission to institutional recognition, enabling traceability across vulnerability disclosures and reproducible modules.
 
-🔄 [Release Notes](https://github.com/CompuCellags/ia-core-models/edit/main/docs/CHANGELOG.md)
+### 🔐 Registered CPEs
 
-🐞 [Reportar errores](https://github.com/CompuCellags/ia-core-models/edit/main/docs/CONTRIBUTING.md)
+- `cpe:2.3:a:compucellags:ia_core_models:1.0.0:*:*:*:*:*:*:*`
+- `cpe:2.3:a:compucellags:ia_core_models:1.1.0:*:*:*:*:*:*:*`
+
+### 📅 Registration Date
+
+October 2025
+
+## 📦 Repository Status
+
+The project remains in active development, with each version fulfilling ethical traceability requirements and reproducible audit standards. Future versions will continue to be registered and linked to CVEs as appropriate.
+
+🔄 [Release Notes](#)  
+🐞 [Reportar errores](#)
 
 ---
 
-##Technical signature: Develop Aguascalientes - Security Research / Open Source Development
+## 🧬 Technical Signature  
+**Develop Aguascalientes**  
+Security Research / Open Source Development  
+
