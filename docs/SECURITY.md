@@ -11,9 +11,16 @@ This project follows ethical audit standards and includes replicable validation 
 
 ## 🧾 CPE Submission
 
-- **Provisional CPE:** `cpe:2.3:a:develop:ia_core_models:1.0.0:*:*:*:*:*:*:*`
-- **Status:** In progress, submitted to NVD on 2025-09-05
-- **Tracking:** See `docs/repo_interim.md` for version history
+- **Registered CPEs:**
+  - `cpe:2.3:a:compucellags:ia_core_models:1.0.0:*:*:*:*:*:*:*`
+  - `cpe:2.3:a:compucellags:ia_core_models:1.1.0:*:*:*:*:*:*:*`
+
+- **Package:** `ia_core_models`
+- **Vendor:** `compucellags`
+- **Status:** Officially registered in NIST CPE database
+- **Registration Date:** October 2025
+- **Tracking:** See [`docs/repo_interim.md`](docs/repo_interim.md) for version history and Disclosure Timeline
+
 
 ## 📎 Audit Compatibility
 
