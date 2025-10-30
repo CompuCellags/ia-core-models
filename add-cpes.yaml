@@ -1,0 +1,12 @@
+entries:
+  - cpe: "cpe:2.3:a:compucellags:Ia_core_models:1.0.0:*:*:*:*:*:*:*"
+    package: "Ia_core_models"
+    version: "1.0.0"
+    vendor: "compucellags"
+  - cpe: "cpe:2.3:a:compucellags:Ia_core_models:1.1.0:*:*:*:*:*:*:*"
+    package: "Ia_core_models"
+    version: "1.1.0"
+    vendor: "compucellags"
+
+# Archivo agregado para rastrear los CPEs del proyecto
+# Generado por GitHub Copilot Chat Assistant
