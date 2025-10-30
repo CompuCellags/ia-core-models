@@ -32,14 +32,53 @@ class SimpleCNN(nn.Module):
         return self.net(x)
 
 # === Preparar transformaciones ===
+def _to_list(x):
+    if x is None:
+        return None
+    if isinstance(x, (int, float)):
+        return [float(x)]
+    if isinstance(x, (list, tuple)):
+        return [float(i) for i in x]
+    raise ValueError(f"Normalize values must be number or list/tuple, got {type(x)}")
+
+def _ensure_channels(lst, channels, name):
+    if lst is None:
+        raise ValueError(f"{name} is required for Normalize")
+    if len(lst) == channels:
+        return lst
+    if len(lst) == 1:
+        return [lst[0]] * channels
+    raise ValueError(f"{name} length ({len(lst)}) does not match input_channels ({channels})")
+
 transform_list = []
 for t in config["dataset"]["transform"]:
     if isinstance(t, str) and t == "ToTensor":
         transform_list.append(transforms.ToTensor())
-        transform_list.append(transforms.Lambda(lambda x: x.repeat(3, 1, 1) if x.shape[0] == 1 else x))
+        # Si la imagen es mono-canal y el modelo espera más canales, repetir:
+        transform_list.append(
+            transforms.Lambda(
+                lambda x, ch=channels: x.repeat(ch, 1, 1) if x.ndim == 3 and x.shape[0] == 1 and ch > 1 else x
+            )
+        )
+
     elif isinstance(t, dict) and "Normalize" in t:
-        mean_std = t["Normalize"]
-        transform_list.append(transforms.Normalize(mean=mean_std, std=mean_std))
+        val = t["Normalize"]
+        # Acepta dos formatos comunes:
+        # 1) {"Normalize": {"mean": [...], "std": [...]} }
+        # 2) {"Normalize": [mean_list, std_list]}
+        if isinstance(val, dict):
+            mean_raw = _to_list(val.get("mean"))
+            std_raw = _to_list(val.get("std"))
+        elif isinstance(val, (list, tuple)) and len(val) == 2:
+            mean_raw = _to_list(val[0])
+            std_raw = _to_list(val[1])
+        else:
+            raise ValueError("Normalize must be dict with 'mean' and 'std' or a 2-element list [mean, std]")
+
+        mean = _ensure_channels(mean_raw, channels, "mean")
+        std = _ensure_channels(std_raw, channels, "std")
+
+        transform_list.append(transforms.Normalize(mean=mean, std=std))
 
 transform = transforms.Compose(transform_list)
 
