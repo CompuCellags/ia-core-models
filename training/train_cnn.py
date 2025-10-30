@@ -43,12 +43,16 @@ for t in config["dataset"]["transform"]:
 transform = transforms.Compose(transform_list)
 
 # === Cargar datos simulados ===
+channels = config["model"]["input_channels"]
+image_size = (channels, 32, 32)
+
 dataset = datasets.FakeData(
     size=1000,
-    image_size=(config["model"]["input_channels"], 32, 32),
+    image_size=image_size,
     num_classes=config["model"]["num_classes"],
     transform=transform
 )
+
 loader = DataLoader(dataset, batch_size=config["training"]["batch_size"], shuffle=True)
 
 # === Inicializar modelo, optimizador y función de pérdida ===
@@ -76,3 +80,4 @@ for epoch in range(config["training"]["epochs"]):
 os.makedirs("models", exist_ok=True)
 torch.save(model.state_dict(), "models/modelo_entrenado.pt")
 print("✅ Modelo guardado en models/modelo_entrenado.pt")
+
