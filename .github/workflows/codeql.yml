@@ -21,7 +21,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: ["javascript", "python"]  # ajusta según tu stack
+        language: ["python"]  # ajusta según tu stack
 
     steps:
       - name: "🧾 Checkout repository"
